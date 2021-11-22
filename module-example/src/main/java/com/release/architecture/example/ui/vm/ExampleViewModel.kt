@@ -51,9 +51,7 @@ class ExampleViewModel @Inject constructor(private val mRepo: ExampleRepo) : Bas
         logI("mCurPage == $mCurPage")
         viewModelScope.launch(Dispatchers.IO) {
             mRepo.getArticleData(mCurPage)
-                .catch {
-                    logE(it.message ?: "")
-                }
+                .catch { logE(it.message ?: "") }
                 .onStart { changeStateView(loading = true) }
                 .onCompletion { changeStateView(hide = true) }
                 .collect {
