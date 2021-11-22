@@ -2,7 +2,7 @@
 
 ## 一、介绍
 
-这是一个 **MVVM** + **组件化架构**的 **Android 项目开发框架**，使用 **Kotlin** 语言进行开发，基于 **Google Android Teme 推荐架构**和 **Android Jetpack** 实现。框架最早自2020年9月开发完成，经多个项目的落地及不断的优化改进，形成现在的框架。
+这是一个 **MVVM** + **组件化架构**的 **Android 项目开发框架**，使用 **Kotlin** 语言进行开发，基于 **Google Android Teme 推荐架构**和 **Android Jetpack** 实现。
 
 ## 二、架构设计
 
