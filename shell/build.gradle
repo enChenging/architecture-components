@@ -1,0 +1,108 @@
+
+apply plugin: GradlePluginId.ANDROID_APPLICATION
+apply plugin: GradlePluginId.KOTLIN_ANDROID
+apply plugin: GradlePluginId.KOTLIN_KAPT
+apply plugin: GradlePluginId.AROUTER
+apply plugin: GradlePluginId.HILT
+
+android {
+    compileSdk AndroidConfig.COMPILE_SDK_VERSION
+    buildToolsVersion AndroidConfig.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId AndroidConfig.PACKAGE_NAME
+        minSdkVersion AndroidConfig.MIN_SDK_VERSION
+        targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
+        versionCode AndroidConfig.VERSION_CODE
+        versionName AndroidConfig.VERSION_NAME
+        testInstrumentationRunner TestLibs.AndroidJUnitRunner
+
+        ndk {
+            // 设置支持的SO库架构 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: AndroidConfig.PACKAGE_NAME,
+                JPUSH_APPKEY : Keys.J_PUSH_KEY,
+                JPUSH_CHANNEL: Keys.CHANNEL,
+        ]
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    // 签名文件信息
+//    signingConfigs {
+//        releaseConfig {
+//            keyAlias ''
+//            keyPassword ''
+//            storeFile file('')
+//            storePassword ''
+//        }
+//    }
+
+    buildTypes {
+        String fieldName = "VERSION_TYPE"
+        String fieldType = "String"
+
+        // 开发环境
+        debug {
+            buildConfigField fieldType, fieldName, "\"${AppVersion.ALPHA}\""
+//            signingConfig signingConfigs.releaseConfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // 公开测试版
+        beta {
+            buildConfigField fieldType, fieldName, "\"${AppVersion.BETA}\""
+//            signingConfig signingConfigs.releaseConfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // 正式版
+        release {
+            buildConfigField fieldType, fieldName, "\"${AppVersion.RELEASE}\""
+//            signingConfig signingConfigs.releaseConfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 自定义apk文件名
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if (outputFileName != null && outputFileName.endsWith('.apk')) {
+                outputFileName = "${AndroidConfig.PACKAGE_NAME}" +
+                        "_${AndroidConfig.VERSION_CODE}" +
+                        "(${AndroidConfig.VERSION_NAME})" +
+                        "_${variant.buildType.name}" +
+                        ".apk"
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    if (AndroidConfig.MODULE_IS_APP) {
+        implementation project(path: ':library-comm')
+    } else {
+        implementation project(path: ':module-example')
+        implementation project(path: ':module-example2')
+    }
+
+    implementation JetPackLibs.HiltCore
+    kapt OtherLibs.AutoServiceAnnotations
+    kapt JetPackLibs.HiltApt
+    kapt JetPackLibs.HiltAndroidx
+}

@@ -1,0 +1,74 @@
+apply from: '../gradle-script/base-library.gradle'
+
+android {
+    resourcePrefix "base_"
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    api AndroidLibs.AppCompat
+    api AndroidLibs.CoreKtx
+    api AndroidLibs.ActivityKtx
+    api AndroidLibs.FragmentKtx
+    api AndroidLibs.MultiDex
+    api AndroidLibs.MaterialDesign
+    api AndroidLibs.ConstraintLayout
+
+    api TestLibs.Junit
+    api TestLibs.TestExtJunit
+    api TestLibs.TestEspresso
+
+    api JetPackLibs.ViewModel
+    api JetPackLibs.ViewModelSavedState
+    api JetPackLibs.LiveData
+    api JetPackLibs.Lifecycle
+    api JetPackLibs.LifecycleService
+    api JetPackLibs.HiltCore
+    api JetPackLibs.Palette
+    api JetPackLibs.Room
+    api JetPackLibs.RoomCoroutineKtx
+
+    api KotlinLibs.Kotlin
+    api KotlinLibs.CoroutinesCore
+    api KotlinLibs.CoroutinesAndroid
+
+    api NetworkLibs.OkHttp
+    api NetworkLibs.OkHttpInterceptorLogging
+    api NetworkLibs.Retrofit
+    api NetworkLibs.RetrofitConverterGson
+    api NetworkLibs.Gson
+
+    api UILibs.AutoSize
+    api UILibs.RecyclerViewAdapter
+    api UILibs.Glide
+    api UILibs.PictureSelector
+    api UILibs.RefreshKernel
+    api UILibs.RefreshHeader
+    api UILibs.RefreshFooter
+
+    api OtherLibs.MMKV
+    api OtherLibs.ARoute
+    api OtherLibs.EventBus
+    api OtherLibs.PermissionX
+    api OtherLibs.AutoService
+    api OtherLibs.Logger
+
+    api SDKLibs.TencentBugly
+    api SDKLibs.TencentTBSX5
+    api SDKLibs.Fastjson
+
+    kapt JetPackLibs.LifecycleCompilerAPT
+    kapt JetPackLibs.HiltApt
+    kapt JetPackLibs.HiltAndroidx
+    kapt JetPackLibs.RoomCompiler
+
+    kapt OtherLibs.ARouteCompiler
+    kapt OtherLibs.EventBusAPT
+    kapt OtherLibs.AutoServiceAnnotations
+    kapt UILibs.GlideCompiler
+}

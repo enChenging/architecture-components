@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/vTitleLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingStart="@dimen/comm_toolbar_back_padding_start"
+    android:paddingEnd="40dp"
+    android:paddingTop="29dp"
+    android:paddingBottom="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/vBackIv"
+        android:layout_width="@dimen/comm_toolbar_back_image_size"
+        android:layout_height="@dimen/comm_toolbar_back_image_size"
+        android:padding="@dimen/comm_toolbar_back_image_padding"
+        android:src="@drawable/comm_ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/vTitleTv"
+        app:layout_constraintTop_toTopOf="@id/vTitleTv" />
+
+    <TextView
+        android:id="@+id/vTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textColor="#FF000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/vBackIv"
+        app:layout_constraintTop_toTopOf="parent"
+        tool:text="正常标题" />
+
+    <TextView
+        android:id="@+id/vTitleRightTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textColor="#99060606"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vTitleTv"
+        tool:text="右边标题"
+        tool:ignore="SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

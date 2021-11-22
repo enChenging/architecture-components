@@ -1,0 +1,145 @@
+/**
+ * 公共 application gradle 脚本
+ *
+ * @author yancheng
+ * @since 2021/11/15
+ */
+
+// 判断当前是什么模式 根据不同的模式应用不同的插件
+if (AndroidConfig.MODULE_IS_APP) {
+    apply plugin: GradlePluginId.ANDROID_APPLICATION
+    apply plugin: GradlePluginId.AROUTER
+} else {
+    apply plugin: GradlePluginId.ANDROID_LIBRARY
+}
+apply plugin: GradlePluginId.KOTLIN_ANDROID
+apply plugin: GradlePluginId.KOTLIN_KAPT
+apply plugin: GradlePluginId.HILT
+
+android {
+    compileSdkVersion AndroidConfig.COMPILE_SDK_VERSION
+    buildToolsVersion AndroidConfig.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion AndroidConfig.MIN_SDK_VERSION
+        targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
+        versionCode AndroidConfig.VERSION_CODE
+        versionName AndroidConfig.VERSION_NAME
+        testInstrumentationRunner TestLibs.AndroidJUnitRunner
+
+        ndk {
+            // 设置支持的SO库架构 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: AndroidConfig.PACKAGE_NAME,
+                JPUSH_APPKEY : Keys.J_PUSH_KEY,
+                JPUSH_CHANNEL: Keys.CHANNEL,
+        ]
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // Room 配置
+                // room.schemaLocation：配置并启用将数据库架构导出到给定目录中的 JSON 文件的功能。
+                // room.incremental：启用 Gradle 增量注解处理器。
+                // room.expandProjection：配置 Room 以重写查询，使其顶部星形投影在展开后仅包含 DAO 方法返回类型中定义的列。
+                arguments += [
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    //根据不同的模式加载不同的 AndroidManifest 文件
+    sourceSets {
+        main {
+            if (AndroidConfig.MODULE_IS_APP) {
+                manifest.srcFile 'src/main/java/appdebug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    //排除 appdebug 文件夹下的所有文件
+                    exclude 'appdebug/**'
+                }
+            }
+        }
+    }
+
+    buildTypes {
+        String fieldName = "VERSION_TYPE"
+        String fieldType = "String"
+
+        // 开发环境
+        debug {
+            buildConfigField fieldType, fieldName, "\"${AppVersion.ALPHA}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // 公开测试版
+        beta {
+            buildConfigField fieldType, fieldName, "\"${AppVersion.BETA}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // 正式版
+        release {
+            buildConfigField fieldType, fieldName, "\"${AppVersion.RELEASE}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    useLibrary 'org.apache.http.legacy'
+}
+
+kapt {
+    String projectName = project.name.split("-").getAt(1)
+    String v = projectName.substring(0, 1).toUpperCase() + projectName.substring(1)
+    arguments {
+        arg("AROUTER_MODULE_NAME", v)
+        arg("eventBusIndex", "${AndroidConfig.PACKAGE_NAME}.eventbus.index.${v}EventIndex")
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    if (AndroidConfig.MODULE_IS_APP) {
+        implementation project(path: ':library_debug')
+    } else {
+        api project(path: ':library-comm')
+    }
+
+    testImplementation TestLibs.Junit
+    androidTestImplementation TestLibs.TestExtJunit
+    androidTestImplementation TestLibs.TestEspresso
+
+    implementation JetPackLibs.HiltCore
+
+    kapt JetPackLibs.LifecycleCompilerAPT
+    kapt JetPackLibs.HiltApt
+    kapt JetPackLibs.HiltAndroidx
+    kapt JetPackLibs.RoomCompiler
+
+    kapt OtherLibs.ARouteCompiler
+    kapt OtherLibs.EventBusAPT
+    kapt OtherLibs.AutoServiceAnnotations
+    kapt UILibs.GlideCompiler
+
+}

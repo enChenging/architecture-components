@@ -1,0 +1,27 @@
+//****************************************
+//******** lib_debug 的配置文件 *********
+//****************************************
+
+apply from: '../gradle-script/base-library.gradle'
+
+android {
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    resourcePrefix "debug_"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    api project(path: ':library-comm')
+    implementation JetPackLibs.HiltCore
+
+    kapt OtherLibs.ARouteCompiler
+    kapt OtherLibs.EventBusAPT
+    kapt OtherLibs.AutoServiceAnnotations
+    kapt JetPackLibs.LifecycleCompilerAPT
+    kapt JetPackLibs.HiltApt
+    kapt JetPackLibs.HiltAndroidx
+}

@@ -1,0 +1,21 @@
+apply from: '../gradle-script/base-library.gradle'
+
+android {
+    resourcePrefix "push_"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    compileOnly JetPackLibs.HiltCore
+    compileOnly OtherLibs.AutoService
+    compileOnly OtherLibs.EventBus
+    compileOnly SDKLibs.Fastjson
+
+    api SDKLibs.JiCore
+    api SDKLibs.JiPush
+
+    kapt OtherLibs.AutoServiceAnnotations
+    kapt JetPackLibs.HiltApt
+    kapt JetPackLibs.HiltAndroidx
+}

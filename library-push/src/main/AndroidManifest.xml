@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="io.tjlc.android.framework.push">
+
+    <!--  访问网络  -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--  允许应用可以接收点亮屏幕或解锁广播。  -->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <!--  允许应用在手机屏幕关闭后后台进程仍然运行； 该权限从 JPush 3.1.5 版本开始变为可选权限，在 3.1.5 前的版本为必须权限。  -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--  允许应用访问手机状态。  -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--  允许应用写入外部存储。  -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--   允许应用读取外部存储 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--  允许应用读取系统设置项。 该权限从 JPush 3.3.2 版本开始变为可选权限，在 3.3.2 前版本为必须权限。  -->
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <!--  允许应用震动。 该权限从 JPush 3.1.5 版本开始变为可选权限，在 3.1.5 前版本为必须权限。  -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--  允许应用挂载/卸载外部文件系统。  -->
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <!--   允许应用获取网络信息状态，如当前的网络连接是否有效。 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--  官方定义的权限，允许应用接收 JPush 内部代码发送的广播消息  -->
+    <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
+
+    <application>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <!-- Since JCore2.0.0 Required SDK核心功能-->
+        <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+        <service
+            android:name="PushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
+        <!-- Required since 3.0.7 -->
+        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 3.3.0开始所有事件将通过该类回调 -->
+        <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <receiver
+            android:name="PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <!-- Required 用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required 用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required 用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required 用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- 接收网络变化 连android:process=":remote"接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.yuezhi.pad" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

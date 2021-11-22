@@ -1,0 +1,5 @@
+apply from: '../gradle-script/base-module.gradle'
+
+android {
+    resourcePrefix "example_"
+}

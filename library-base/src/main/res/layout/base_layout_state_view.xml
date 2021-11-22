@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_empty_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/rl_empty_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/vDefIv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            tools:src="@drawable/base_ic_default_empty" />
+
+        <TextView
+            android:id="@+id/tv_no_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            tools:text="@string/base_no_data"
+            android:textColor="#99000000"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/vLoadingIv"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:src="@drawable/base_ic_loading" />
+
+    <!--    <com.github.ybq.android.spinkit.SpinKitView-->
+    <!--        android:id="@+id/empty_loading"-->
+    <!--        style="@style/SpinKitView.Circle"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:padding="20dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:SpinKit_Color="#FB6828" />-->
+</FrameLayout>
