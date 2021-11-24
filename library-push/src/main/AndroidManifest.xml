@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.tjlc.android.framework.push">
+    package="com.release.architecture.push">
 
     <!--  访问网络  -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -40,7 +40,7 @@
         <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
         <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
         <service
-            android:name="PushService"
+            android:name="JCoreService"
             android:enabled="true"
             android:exported="false"
             android:process=":pushcore">
@@ -54,7 +54,7 @@
         <!-- 3.3.0开始所有事件将通过该类回调 -->
         <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
         <receiver
-            android:name="PushReceiver"
+            android:name="NewJPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -70,7 +70,7 @@
                 <action android:name="cn.jpush.android.intent.CONNECTION" />
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
 
-                <category android:name="com.yuezhi.pad" />
+                <category android:name="com.release.architecture" />
             </intent-filter>
         </receiver>
 
