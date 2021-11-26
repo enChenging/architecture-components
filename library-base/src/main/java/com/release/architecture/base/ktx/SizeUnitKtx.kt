@@ -1,7 +1,6 @@
 package com.release.architecture.base.ktx
 
-import android.content.Context
-import androidx.fragment.app.Fragment
+import android.content.res.Resources
 
 /**
  * 尺寸单位换算相关扩展属性
@@ -10,66 +9,36 @@ import androidx.fragment.app.Fragment
  * @since 2021/11/15
  */
 
+private val displayMetrics = Resources.getSystem().displayMetrics
+
 /**
  * dp 转 px
  */
-fun Context.dp2px(dpValue: Float): Int {
-    val scale = resources.displayMetrics.density
-    return (dpValue * scale + 0.5f).toInt()
+fun Float.dp2px(): Int {
+    val scale = displayMetrics.density
+    return (this * scale + 0.5f).toInt()
 }
 
 /**
  * px 转 dp
  */
-fun Context.px2dp(pxValue: Float): Int {
-    val scale = resources.displayMetrics.density
-    return (pxValue / scale + 0.5f).toInt()
+fun Float.px2dp(): Int {
+    val scale = displayMetrics.density
+    return (this / scale + 0.5f).toInt()
 }
 
 /**
  * sp 转 px
  */
-fun Context.sp2px(spValue: Float): Int {
-    val scale = resources.displayMetrics.scaledDensity
-    return (spValue * scale + 0.5f).toInt()
+fun Float.sp2px(): Int {
+    val scale = displayMetrics.scaledDensity
+    return (this * scale + 0.5f).toInt()
 }
 
 /**
  * px 转 sp
  */
-fun Context.px2sp(pxValue: Float): Int {
-    val scale = resources.displayMetrics.scaledDensity
-    return (pxValue / scale + 0.5f).toInt()
-}
-
-/**
- * dp 转 px
- */
-fun Fragment.dp2px(dpValue: Float): Int {
-    val scale = resources.displayMetrics.density
-    return (dpValue * scale + 0.5f).toInt()
-}
-
-/**
- * px 转 dp
- */
-fun Fragment.px2dp(pxValue: Float): Int {
-    val scale = resources.displayMetrics.density
-    return (pxValue / scale + 0.5f).toInt()
-}
-
-/**
- * sp 转 px
- */
-fun Fragment.sp2px(spValue: Float): Int {
-    val scale = resources.displayMetrics.scaledDensity
-    return (spValue * scale + 0.5f).toInt()
-}
-
-/**
- * px 转 sp
- */
-fun Fragment.px2sp(pxValue: Float): Int {
-    val scale = resources.displayMetrics.scaledDensity
-    return (pxValue / scale + 0.5f).toInt()
+fun Float.px2sp(): Int {
+    val scale = displayMetrics.scaledDensity
+    return (this / scale + 0.5f).toInt()
 }

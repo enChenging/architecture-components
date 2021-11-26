@@ -9,9 +9,9 @@ import com.release.architecture.comm.constant.SpKey
  */
 object TokenManager {
 
-    private var mToken: String = SpUtils.getString(SpKey.TOKEN, "") ?: ""
+    private var mToken: String = SpUtils.getString(SpKey.TOKEN, "")
 
-    private var mLastRequestTime: Long = SpUtils.getLong(SpKey.LAST_REQUEST_TIME, 0L) ?: 0L
+    private var mLastRequestTime: Long = SpUtils.getLong(SpKey.LAST_REQUEST_TIME, 0L)
 
     /**
      * 从缓存中获取token

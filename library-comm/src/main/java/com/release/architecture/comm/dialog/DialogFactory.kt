@@ -29,6 +29,7 @@ class DialogFactory {
          * @param titleText String 标题内容
          * @return Dialog
          */
+        @JvmOverloads
         inline fun createTipsDialog(
             context: Context,
             content: String,

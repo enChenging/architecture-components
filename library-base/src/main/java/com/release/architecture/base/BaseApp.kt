@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import androidx.multidex.MultiDexApplication
-import com.release.architecture.base.app.LoadModuleProxy
 import com.release.architecture.base.app.ActivityLifecycleCallbacksImpl
+import com.release.architecture.base.app.LoadModuleProxy
 import com.release.architecture.base.constant.LogTAG
 import com.release.architecture.base.utils.logD
 import kotlinx.coroutines.*
@@ -22,15 +22,20 @@ open class BaseApp : MultiDexApplication() {
     private val mLoadModuleProxy by lazy(mode = LazyThreadSafetyMode.NONE) { LoadModuleProxy() }
 
     companion object {
-        // 全局Context
         @SuppressLint("StaticFieldLeak")
+        @JvmStatic
+        @get:JvmName("context")
         lateinit var context: Context
+            private set
 
         @SuppressLint("StaticFieldLeak")
+        @JvmStatic
+        @get:JvmName("application")
         lateinit var application: BaseApp
+            private set
 
         // 全局CoroutineScope
-        val mCoroutineScope by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED){
+        val mCoroutineScope by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             CoroutineScope(
                 SupervisorJob()
                         + Dispatchers.Default

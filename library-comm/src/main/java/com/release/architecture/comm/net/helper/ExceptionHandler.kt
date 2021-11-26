@@ -18,6 +18,7 @@ import com.release.architecture.comm.net.helper.ResponseCodeEnum as ExceptionTyp
  * @param successBlock suspend () -> Unit 没有异常的情况下执行的方法体 可以在此处进行数据的发射
  * @throws ResponseException 未进行处理的异常会进行抛出，让ViewModel去做进一步处理
  */
+@JvmOverloads
 @Throws(ResponseException::class)
 suspend fun responseCodeExceptionHandler(
     code: Int,

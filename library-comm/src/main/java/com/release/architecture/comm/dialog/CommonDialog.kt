@@ -15,24 +15,22 @@ import com.release.architecture.comm.databinding.CommDialogBinding
  */
 class CommonDialog(
     context: Context,
-    onConfimClickListener: () -> Unit,
-    onCancelClickListener: () -> Unit
+    val onConfimClickListener: () -> Unit,
+    val onCancelClickListener: () -> Unit
 ) : Dialog(context, R.style.comm_transparent_dialog) {
 
     private lateinit var mBinding: CommDialogBinding
-    private var mOnConfimClickListener = onConfimClickListener
-    private var mOnCancelClickListener = onCancelClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = CommDialogBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         mBinding.vConfimBtn.setOnClickListener {
-            mOnConfimClickListener()
+            onConfimClickListener()
             dismiss()
         }
         mBinding.vCancelBtn.setOnClickListener {
-            mOnCancelClickListener()
+            onCancelClickListener()
             dismiss()
         }
         setCanceledOnTouchOutside(false)

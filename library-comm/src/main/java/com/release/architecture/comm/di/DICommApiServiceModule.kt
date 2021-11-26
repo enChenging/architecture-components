@@ -1,5 +1,6 @@
 package com.release.architecture.comm.di
 
+import com.release.architecture.base.ktx.create
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,6 +28,6 @@ class DICommApiServiceModule {
     @Singleton
     @Provides
     fun provideCommApiService(retrofit: Retrofit): CommApiService {
-        return retrofit.create(CommApiService::class.java)
+        return create(retrofit)
     }
 }
