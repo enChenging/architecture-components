@@ -8,7 +8,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/main_ic_launcher"
         android:label="@string/example2_app_name"
-        android:networkSecurityConfig="@xml/comm_network_security_config"
+        android:networkSecurityConfig="@xml/base_network_security_config"
         android:roundIcon="@mipmap/main_ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"

@@ -1305,7 +1305,7 @@ public final class SpannableStringUtils {
 
         private CustomImageSpan(final Bitmap b, final int verticalAlignment) {
             super(verticalAlignment);
-            mDrawable = new BitmapDrawable(BaseApp.context.getResources(), b);
+            mDrawable = new BitmapDrawable(BaseApp.context().getResources(), b);
             mDrawable.setBounds(
                     0, 0, mDrawable.getIntrinsicWidth(), mDrawable.getIntrinsicHeight()
             );
@@ -1338,9 +1338,9 @@ public final class SpannableStringUtils {
                 Bitmap bitmap;
                 try {
                     InputStream is =
-                            BaseApp.context.getContentResolver().openInputStream(mContentUri);
+                            BaseApp.context().getContentResolver().openInputStream(mContentUri);
                     bitmap = BitmapFactory.decodeStream(is);
-                    drawable = new BitmapDrawable(BaseApp.context.getResources(), bitmap);
+                    drawable = new BitmapDrawable(BaseApp.context().getResources(), bitmap);
                     drawable.setBounds(
                             0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()
                     );
@@ -1352,7 +1352,7 @@ public final class SpannableStringUtils {
                 }
             } else {
                 try {
-                    drawable = ContextCompat.getDrawable(BaseApp.context, mResourceId);
+                    drawable = ContextCompat.getDrawable(BaseApp.context(), mResourceId);
                     drawable.setBounds(
                             0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()
                     );

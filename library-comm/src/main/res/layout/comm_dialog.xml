@@ -54,7 +54,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="52dp"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/comm_dialog_cancle"
+            android:background="@drawable/comm_dialog_cancel"
             android:gravity="center"
             android:text="@string/comm_dialog_i_think_about"
             android:textColor="#FB6828"

@@ -70,7 +70,7 @@
                 <action android:name="cn.jpush.android.intent.CONNECTION" />
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
 
-                <category android:name="com.release.architecture" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
 

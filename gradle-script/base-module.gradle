@@ -32,12 +32,6 @@ android {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
         }
 
-        manifestPlaceholders = [
-                JPUSH_PKGNAME: AndroidConfig.PACKAGE_NAME,
-                JPUSH_APPKEY : Keys.J_PUSH_KEY,
-                JPUSH_CHANNEL: Keys.CHANNEL,
-        ]
-
         javaCompileOptions {
             annotationProcessorOptions {
                 // Room 配置

@@ -13,6 +13,16 @@
             android:name="design_height_in_dp"
             android:value="640" />
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${JPUSH_PKGNAME}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/comm_provider_paths" />
+        </provider>
+
         <!--  Android P 限制  -->
         <uses-library
             android:name="org.apache.http.legacy"

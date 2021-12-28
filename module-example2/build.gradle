@@ -1,5 +1,12 @@
 apply from: '../gradle-script/base-module.gradle'
 
 android {
+    defaultConfig {
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "${AndroidConfig.PACKAGE_NAME}.example2",
+                JPUSH_APPKEY : "",
+                JPUSH_CHANNEL: "",
+        ]
+    }
     resourcePrefix "example2_"
 }

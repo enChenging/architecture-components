@@ -17,7 +17,7 @@ object AndroidConfig {
     /**
      * 是否模块为 App
      */
-    const val MODULE_IS_APP = false
+    const val MODULE_IS_APP = true
 }
 
 /**
