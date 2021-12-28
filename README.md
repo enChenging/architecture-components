@@ -123,4 +123,3 @@
 
 1. 模块单独运行需要在 **buildSrc** 模块下的 `ProjectBuildConfig.MODULE_IS_APP` 值改为 `true`，然后 **sync** 工程后，就能够看到模块可以被单独运行了，但是还有几个需要注意的地方：
    - **module** 模块需要有自己的自定义 **Application** 但是由于使用了依赖注入框架 **Hilt**，所以需要在 自定义的**Application** 上面加上 `@ HiltAndroidApp` 注解，但是 **Hilt** 内部会检查运行的模块以及所依赖的模块只能有一个注解存在，所以当我们运行 **shell** 的时候，需要将其他 **module** 模块的 `@ HiltAndroidApp` 注解注释掉，当运行 **module** 的时候需要将该注解再打开。
-   - 由于极光推送内部会根据配置的包名生成 **DataProvider**，而同包名下只能存在一个，所以安装模块应用时，需要将其他模块卸载，否则会安装不成功。
