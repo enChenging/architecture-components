@@ -8,6 +8,7 @@ import com.release.architecture.base.utils.logD
 import com.release.architecture.base.widget.StateLayout
 import com.release.architecture.comm.R
 import com.tencent.smtt.sdk.WebChromeClient
+import com.tencent.smtt.sdk.WebSettings
 import com.tencent.smtt.sdk.WebView
 import com.tencent.smtt.sdk.WebViewClient
 
@@ -82,7 +83,8 @@ class X5WebView(context: Context) : WebView(context) {
             javaScriptEnabled = true //允许js调用
             javaScriptCanOpenWindowsAutomatically = true //支持通过JS打开新窗口
             databaseEnabled = true //设置可以调用数据库
-            domStorageEnabled = true //设置可以dom存储
+            domStorageEnabled = true //
+            cacheMode = WebSettings.LOAD_NO_CACHE
             loadsImagesAutomatically = true
             allowFileAccess = false //在File域下，能够执行任意的JavaScript代码，同源策略跨域访问能够对私有目录文件进行访问等
             setSupportZoom(false) //支持页面缩放
