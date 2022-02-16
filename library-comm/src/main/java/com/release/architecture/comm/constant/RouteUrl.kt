@@ -22,22 +22,22 @@ object RouteUrl {
     /**
      * 示例 模块1
      */
-    object Example {
+    object One {
 
         /**
-         * ExampleActivity
+         * OneHomeActivity
          */
-        const val ExampleHomeActivity = "/module_example/ExampleHomeActivity"
+        const val OneHomeActivity = "/module_example/OneHomeActivity"
     }
 
     /**
      * 示例 模块2
      */
-    object Example2 {
+    object Two {
 
         /**
-         * Example2Activity
+         * TwoHomeActivity
          */
-        const val Example2HomeActivity = "/module_example2/Example2HomeActivity"
+        const val TwoHomeActivity = "/module_example2/TwoHomeActivity"
     }
 }

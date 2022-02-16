@@ -50,6 +50,13 @@ object Versions {
     const val CZXing = "1.0.17"                       // 扫码器
     const val RefreshClassics = "2.0.3"               // 经典刷新头/经典加载
 
+    // 第三方SDK-------------------------------------------------------------
+    const val TencentBugly = "3.4.4"                  // 腾讯 Bugly 异常上报
+    const val TencentTBSX5 = "44085"                  // 腾讯 TBS X5内核
+    const val JiPush = "4.3.0"                        // 极光推送
+    const val JiCore = "2.9.0"                        // 极光推送
+    const val Fastjson = "1.2.66"                     // Fastjson
+
     // 其他-----------------------------------------------------------------
     const val MMKV = "1.2.9"                          // 腾讯 MMKV 持久化存储
     const val ARoute = "1.5.2"                        // 阿里路由
@@ -57,13 +64,8 @@ object Versions {
     const val PermissionX = "1.6.1"                   // 权限申请
     const val AutoService = "1.0"                     // 自动生成SPI暴露服务文件
     const val Logger = "2.2.0"                        // 日志框架
-
-    // 第三方SDK-------------------------------------------------------------
-    const val TencentBugly = "3.4.4"                  // 腾讯 Bugly 异常上报
-    const val TencentTBSX5 = "44085"                  // 腾讯 TBS X5内核
-    const val JiPush = "4.3.0"                        // 极光推送
-    const val JiCore = "2.9.0"                        // 极光推送
-    const val Fastjson = "1.2.66"                     // Fastjson
+    const val Leakcanary = "2.8.1"                    // 内存泄漏检测
+    const val chucker = "3.5.2"                       // HTTP 检查器
 }
 
 /***************************************依赖库地址***************************************************/
@@ -185,6 +187,9 @@ object OtherLibs {
     const val AutoServiceAnnotations =
         "com.google.auto.service:auto-service-annotations:${Versions.AutoService}"
     const val Logger = "com.orhanobut:logger:${Versions.Logger}"
+    const val Leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.Leakcanary}"
+    const val debugChucker = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
+    const val releaseChucker = "com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}"
 }
 
 

@@ -1,12 +1,14 @@
 package com.release.architecture.comm.di
 
+import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.release.architecture.base.BaseApp
 import com.release.architecture.base.BuildConfig
+import com.release.architecture.base.constant.VersionStatus
+import com.release.architecture.comm.constant.NetUrl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.release.architecture.base.constant.VersionStatus
-import com.release.architecture.comm.constant.NetUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -39,6 +41,7 @@ class DINetworkModule {
 
         return OkHttpClient.Builder()
             .addInterceptor(logInterceptor)
+            .addInterceptor(ChuckerInterceptor(BaseApp.context))
             .connectTimeout(30L * 1000L, TimeUnit.MILLISECONDS)
             .readTimeout(30L * 1000L, TimeUnit.MILLISECONDS)
             .retryOnConnectionFailure(true)

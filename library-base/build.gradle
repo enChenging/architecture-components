@@ -57,6 +57,9 @@ dependencies {
     api OtherLibs.PermissionX
     api OtherLibs.AutoService
     api OtherLibs.Logger
+    debugApi OtherLibs.Leakcanary
+    debugApi OtherLibs.debugChucker
+    releaseApi OtherLibs.releaseChucker
 
     api SDKLibs.TencentBugly
     api SDKLibs.TencentTBSX5

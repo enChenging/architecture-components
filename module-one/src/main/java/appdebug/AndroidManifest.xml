@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.release.architecture.one">
+
+    <application
+        android:name="appdebug.OneApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/one_ic_launcher"
+        android:label="@string/one_app_name"
+        android:networkSecurityConfig="@xml/base_network_security_config"
+        android:roundIcon="@mipmap/one_ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute"
+        tools:replace="android:label">
+
+        <activity
+            android:name=".ui.activity.OneHomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustPan" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+    </application>
+
+</manifest>

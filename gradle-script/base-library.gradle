@@ -52,7 +52,7 @@ android {
 
         // 开发环境
         debug {
-            buildConfigField fieldType, fieldName, "\"${AppVersion.ALPHA}\""
+            buildConfigField fieldType, fieldName, "\"${AppVersion.DEBUG}\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

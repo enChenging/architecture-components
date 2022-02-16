@@ -23,14 +23,14 @@ class PermissionRequest {
     ) {
         PermissionX.init(activity)
             .permissions(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.READ_PHONE_STATE,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.RECORD_AUDIO,
-                Manifest.permission.READ_EXTERNAL_STORAGE
+                Manifest.permission.RECORD_AUDIO
             )
             .request { allGranted, _, deniedList ->
                 if (allGranted) allGrantedCall() else deniedCall(deniedList)

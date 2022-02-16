@@ -54,7 +54,7 @@ android {
 
         // 开发环境
         debug {
-            buildConfigField fieldType, fieldName, "\"${AppVersion.ALPHA}\""
+            buildConfigField fieldType, fieldName, "\"${AppVersion.DEBUG}\""
 //            signingConfig signingConfigs.releaseConfig
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -97,8 +97,8 @@ dependencies {
     if (AndroidConfig.MODULE_IS_APP) {
         implementation project(path: ':library-comm')
     } else {
-        implementation project(path: ':module-example')
-        implementation project(path: ':module-example2')
+        implementation project(path: ':module-one')
+        implementation project(path: ':module-two')
     }
 
     implementation JetPackLibs.HiltCore
