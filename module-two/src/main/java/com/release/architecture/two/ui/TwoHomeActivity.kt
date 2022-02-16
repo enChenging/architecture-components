@@ -1,7 +1,6 @@
 package com.release.architecture.two.ui
 
 //import com.release.architecture.push.XXX
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -73,9 +72,4 @@ class TwoHomeActivity : BaseActivity<TwoActivityHomeBinding, EmptyViewModel>() {
     override fun initObserve() {}
 
     override fun initRequestData() {}
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(this, "111", Toast.LENGTH_SHORT).show()
-    }
 }
