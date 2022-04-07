@@ -117,7 +117,7 @@ dependencies {
     if (AndroidConfig.MODULE_IS_APP) {
         implementation project(path: ':library-debug')
     } else {
-        api project(path: ':library-comm')
+        api project(path: ':library-common')
     }
 
     testImplementation TestLibs.Junit

@@ -12,19 +12,36 @@ object Keys {
      */
     const val CHANNEL = "***${Versions.AGP}"
 
-    /**
-     * Bugly id 正式环境
-     */
-    const val BUGLY_APP_ID = "***"
-
+    /****************************Bugly*************************************/
     /**
      * Bugly id 开发环境
      */
     const val BUGLY_APP_ID_DEV = "***"
 
     /**
-     * 极光推送 key
+     * Bugly id 测试环境
      */
-    const val J_PUSH_KEY = "***"
+    const val BUGLY_APP_ID_TEST = "***"
+
+    /**
+     * Bugly id 生产环境
+     */
+    const val BUGLY_APP_ID_PROD = "***"
+
+    /****************************极光推送*************************************/
+    /**
+     * 极光推送 key 开发环境
+     */
+    const val J_PUSH_KEY_DEV = "***"
+
+    /**
+     * 极光推送 key 测试环境
+     */
+    const val J_PUSH_KEY_TEST = "***"
+
+    /**
+     * 极光推送 key 生产环境
+     */
+    const val J_PUSH_KEY_PROD = "***"
 
 }

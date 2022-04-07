@@ -24,7 +24,7 @@ android {
 
         manifestPlaceholders = [
                 JPUSH_PKGNAME: AndroidConfig.PACKAGE_NAME,
-                JPUSH_APPKEY : Keys.J_PUSH_KEY,
+                JPUSH_APPKEY : Keys.J_PUSH_KEY_DEV,
                 JPUSH_CHANNEL: Keys.CHANNEL,
         ]
     }
@@ -95,7 +95,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     if (AndroidConfig.MODULE_IS_APP) {
-        implementation project(path: ':library-comm')
+        implementation project(path: ':library-common')
     } else {
         implementation project(path: ':module-one')
         implementation project(path: ':module-two')

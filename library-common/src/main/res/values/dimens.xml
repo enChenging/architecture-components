@@ -1,0 +1,8 @@
+<resources>
+    <!--toolBar-->
+    <dimen name="common_toolbar_title_image_size">16dp</dimen>
+    <dimen name="common_toolbar_back_padding_start">10dp</dimen>
+    <dimen name="common_toolbar_back_image_size">35dp</dimen>
+    <dimen name="common_toolbar_back_image_padding">10dp</dimen>
+
+</resources>

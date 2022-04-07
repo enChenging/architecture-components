@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- 主题色 -->
+    <style name="common_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/common_theme</item>
+        <item name="colorPrimaryDark">@color/common_theme</item>
+        <item name="colorAccent">@color/common_theme</item>
+    </style>
+
+    <!--自定义dialog背景全透明无边框theme -->
+    <style name="common_transparent_dialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--指针颜色-->
+        <item name="android:textCursorDrawable">@drawable/common_cursor</item>
+    </style>
+
+    <!--  圆角样式 4dp  -->
+    <style name="common_RoundedStyle_4">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <!--  圆角样式 8dp  -->
+    <style name="common_RoundedStyle_8">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <!--  圆角样式 10dp  -->
+    <style name="common_RoundedStyle_10">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <!--  圆角样式 12dp -->
+    <style name="common_RoundedStyle_12">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <!--  圆角样式 33% -->
+    <style name="common_RoundedStyle_App_Icon">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">33%</item>
+    </style>
+
+    <!--  圆角样式 50% -->
+    <style name="common_CircleStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

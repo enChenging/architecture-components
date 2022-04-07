@@ -7,10 +7,10 @@ import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.release.architecture.base.mvvm.vm.EmptyViewModel
 import com.release.architecture.base.utils.SpannableStringUtils
-import com.release.architecture.comm.base.BaseActivity
-import com.release.architecture.comm.constant.RouteKey
-import com.release.architecture.comm.constant.RouteUrl
-import com.release.architecture.comm.ui.CommWebActivity
+import com.release.architecture.common.base.BaseActivity
+import com.release.architecture.common.constant.RouteKey
+import com.release.architecture.common.constant.RouteUrl
+import com.release.architecture.common.ui.CommonWebActivity
 import com.release.architecture.two.databinding.TwoActivityHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,7 +42,7 @@ class TwoHomeActivity : BaseActivity<TwoActivityHomeBinding, EmptyViewModel>() {
 
     override fun TwoActivityHomeBinding.initView() {
         vJumpWebBtn.setOnClickListener {
-            CommWebActivity.start(mTitle, mUrl)
+            CommonWebActivity.start(mTitle, mUrl)
         }
         SpannableStringUtils.with(vJumpWebBtn)
             .append("点击跳转到<<")

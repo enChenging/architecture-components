@@ -6,10 +6,10 @@ import com.release.architecture.base.utils.SpUtils
 import com.release.architecture.base.utils.logI
 import com.release.architecture.base.utils.showToast
 import com.release.architecture.base.utils.startActivityByRoute
-import com.release.architecture.comm.base.BaseActivity
-import com.release.architecture.comm.constant.RouteUrl
-import com.release.architecture.comm.net.helper.TokenManager
-import com.release.architecture.comm.proxy.PermissionRequest
+import com.release.architecture.common.base.BaseActivity
+import com.release.architecture.common.constant.RouteUrl
+import com.release.architecture.common.net.helper.TokenManager
+import com.release.architecture.common.proxy.PermissionRequest
 import com.release.architecture.debug.databinding.DebugActivityLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 

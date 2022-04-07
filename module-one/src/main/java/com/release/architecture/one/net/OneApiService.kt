@@ -1,6 +1,6 @@
 package com.release.architecture.one.net
 
-import com.release.architecture.comm.base.BaseResponse
+import com.release.architecture.common.base.BaseResponse
 import com.release.architecture.one.bean.ArticleBean
 import com.release.architecture.one.bean.ArticlePageBean
 import retrofit2.http.GET

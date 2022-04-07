@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="@string/debug_name"
-        android:textColor="@color/comm_theme"
+        android:textColor="@color/common_theme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

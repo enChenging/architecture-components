@@ -3,7 +3,7 @@ rootProject.name = "architecture-components"
 // 壳工程
 include(":shell")
 // 基础模块,公共模块
-include(":library-base", ":library-comm")
+include(":library-base", ":library-common")
 // 独立能力组件
 include(":library-push")
 // 测试环境下模块单独运行需要登录时用到的组件

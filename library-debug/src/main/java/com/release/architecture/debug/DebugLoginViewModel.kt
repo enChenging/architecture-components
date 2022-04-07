@@ -1,14 +1,9 @@
 package com.release.architecture.debug
 
 import androidx.lifecycle.MutableLiveData
-import com.release.architecture.base.ktx.launchIO
 import com.release.architecture.base.mvvm.vm.BaseViewModel
-import com.release.architecture.base.utils.logD
-import com.release.architecture.comm.net.helper.ResponseCodeEnum
-import com.release.architecture.comm.net.helper.ResponseException
-import com.release.architecture.comm.repo.CommRepository
+import com.release.architecture.common.repo.CommonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.catch
 import javax.inject.Inject
 
 /**
@@ -18,7 +13,7 @@ import javax.inject.Inject
  * @since 2021/8/6
  */
 @HiltViewModel
-class DebugLoginViewModel @Inject constructor(private val mRepository: CommRepository) :
+class DebugLoginViewModel @Inject constructor(private val mRepository: CommonRepository) :
     BaseViewModel() {
 
     /**

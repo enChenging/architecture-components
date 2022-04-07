@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.release.architecture.base.ktx.observeLiveData
-import com.release.architecture.comm.base.BaseActivity
-import com.release.architecture.comm.constant.RouteKey
-import com.release.architecture.comm.constant.RouteUrl
+import com.release.architecture.common.base.BaseActivity
+import com.release.architecture.common.constant.RouteKey
+import com.release.architecture.common.constant.RouteUrl
 import com.release.architecture.one.adapter.ArticleAdapter
 import com.release.architecture.one.bean.ArticleBean
 import com.release.architecture.one.databinding.OneActivityHomeBinding

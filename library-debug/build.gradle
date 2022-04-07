@@ -15,7 +15,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    api project(path: ':library-comm')
+    api project(path: ':library-common')
     implementation JetPackLibs.HiltCore
 
     kapt OtherLibs.ARouteCompiler

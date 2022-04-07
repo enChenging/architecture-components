@@ -25,7 +25,7 @@
         android:id="@+id/vJumpWebBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/comm_rect_00ffcc_100_10"
+        android:background="@drawable/common_rect_00ffcc_100_10"
         android:padding="5dp"
         android:text="jump web Detail"
         android:textColor="@android:color/white"

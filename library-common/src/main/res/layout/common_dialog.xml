@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#A1A1A1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_rect_white_100_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/vTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="35dp"
+            android:gravity="center"
+            android:text="@string/common_dialog_tips"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/vContentTv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/vContentTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:textColor="#99000000"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/vConfimBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vTitle"
+            tools:text="内容" />
+
+        <Button
+            android:id="@+id/vCancelBtn"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/common_dialog_cancel"
+            android:gravity="center"
+            android:text="@string/common_dialog_i_think_about"
+            android:textColor="#FB6828"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/vConfimBtn"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/common_dialog_sure"
+            android:gravity="center"
+            android:text="@string/common_dialog_confirm_modification"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

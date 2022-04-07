@@ -1,7 +1,7 @@
 package com.release.architecture.one.ui.repo
 
 import com.release.architecture.base.mvvm.m.BaseRepository
-import com.release.architecture.comm.net.helper.responseCodeExceptionHandler
+import com.release.architecture.common.net.helper.responseCodeExceptionHandler
 import com.release.architecture.one.bean.ArticlePageBean
 import com.release.architecture.one.net.OneApiService
 import kotlinx.coroutines.Dispatchers

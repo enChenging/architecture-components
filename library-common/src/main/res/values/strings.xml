@@ -1,0 +1,10 @@
+<resources>
+    <string name="common_app_name">Android Framework</string>
+
+    <!--dialog-->
+    <string name="common_dialog_tips">提示</string>
+    <string name="common_dialog_i_think_about">我再想想</string>
+    <string name="common_dialog_confirm_modification">确认修改</string>
+    <string name="common_dialog_confirm">确认</string>
+    <string name="common_dialog_cancel">取消</string>
+</resources>
