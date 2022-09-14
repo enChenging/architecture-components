@@ -17,20 +17,18 @@ object AndroidConfig {
     /**
      * 是否模块为 App
      */
-    const val MODULE_IS_APP = true
+    const val MODULE_IS_APP = false
 }
 
 /**
  * 项目当前的版本状态
  * 该状态直接反映当前App是测试版 还是正式版 或者预览版
  * 打包前记得修改该状态
- * 开发环境:DEBUG、公开测试版:BETA、正式版:RELEASE
+ * 开发环境:DEBUG、正式环境:RELEASE
  */
 object AppVersion {
 
     const val DEBUG = "VERSION_STATUS_DEBUG"
-
-    const val BETA = "VERSION_STATUS_BETA"
 
     const val RELEASE = "VERSION_STATUS_RELEASE"
 }

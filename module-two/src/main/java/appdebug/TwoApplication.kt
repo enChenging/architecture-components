@@ -9,5 +9,5 @@ import com.release.architecture.base.BaseApp
  * @author yancheng
  * @since 2021/11/15
  */
-@HiltAndroidApp
+//@HiltAndroidApp
 class TwoApplication : BaseApp()

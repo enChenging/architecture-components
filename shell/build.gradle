@@ -39,14 +39,14 @@ android {
     }
 
     // 签名文件信息
-//    signingConfigs {
-//        releaseConfig {
-//            keyAlias ''
-//            keyPassword ''
-//            storeFile file('')
-//            storePassword ''
-//        }
-//    }
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'android'
+            keyPassword 'android'
+            storeFile file('android.jks')
+            storePassword 'android'
+        }
+    }
 
     buildTypes {
         String fieldName = "VERSION_TYPE"
@@ -55,15 +55,7 @@ android {
         // 开发环境
         debug {
             buildConfigField fieldType, fieldName, "\"${AppVersion.DEBUG}\""
-//            signingConfig signingConfigs.releaseConfig
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-
-        // 公开测试版
-        beta {
-            buildConfigField fieldType, fieldName, "\"${AppVersion.BETA}\""
-//            signingConfig signingConfigs.releaseConfig
+            signingConfig signingConfigs.releaseConfig
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -71,7 +63,7 @@ android {
         // 正式版
         release {
             buildConfigField fieldType, fieldName, "\"${AppVersion.RELEASE}\""
-//            signingConfig signingConfigs.releaseConfig
+            signingConfig signingConfigs.releaseConfig
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

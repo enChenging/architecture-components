@@ -84,13 +84,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
-        // 公开测试版
-        beta {
-            buildConfigField fieldType, fieldName, "\"${AppVersion.BETA}\""
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-
         // 正式版
         release {
             buildConfigField fieldType, fieldName, "\"${AppVersion.RELEASE}\""
